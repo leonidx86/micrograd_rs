@@ -122,10 +122,8 @@ impl MLP {
         }
     }
 
-    pub fn forward(&self, x: &Vec<Value>) -> Vec<Value> {
-        // Convert array of f64 inputs to vector of Value.
-        //let mut v: Vec<Value> = x.iter().map(|x| Value::new(*x)).collect();
-        let mut v = x.clone();
+    pub fn forward(&self, inputs: &Vec<Value>) -> Vec<Value> {
+        let mut v = inputs.clone();
         for layer in self.layers.iter() {
             v = layer.forward(v);
         }

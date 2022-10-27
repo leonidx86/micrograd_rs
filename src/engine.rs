@@ -122,7 +122,7 @@ impl Value {
         fn backward_prev(value: &Value) {
             // Calculate grad for value children in prev (non-recursively).
             // This match is equivalent to the original _backward() method.
-            match value.0.borrow().op {
+            match value.get_op() {
                 // a = b + c
                 //   b.grad += 1.0 * a.grad
                 //   c.grad += 1.0 * a.grad
